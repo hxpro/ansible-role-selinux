@@ -1,4 +1,4 @@
 ---
 - name: Install selinux packages
-  package: name={{ common_pkg }} state=present
+  package: name={{ selinux_pkg }} state=present
   when: ansible_os_family == 'RedHat'
