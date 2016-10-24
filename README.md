@@ -14,7 +14,7 @@ Example Playbook
 License
 -------
 
-WTFPL
+[WTFPL](https://raw.githubusercontent.com/hxpro/ansible-role-selinux/master/LICENSE)
 
 Author Information
 ------------------
