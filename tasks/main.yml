@@ -1,8 +1,7 @@
 ---
 - set_fact:
-    selinux: "{{ ansible_selinux is defined and ansible_selinux == 'Enforced' }}"
+    selinux: "{{ ansible_selinux is defined and ansible_selinux.status == 'enabled' }}"
 
 - name: Install selinux packages
   package: name={{ selinux_pkg }} state=present
   when: selinux and ansible_os_family == 'RedHat'
-
