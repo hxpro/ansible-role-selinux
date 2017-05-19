@@ -1,6 +1,7 @@
 hxpro.selinux
 =============
 
+set selinux fact (boolean) true if selinux is Enforced
 Install packages for SELinux enforced system
 
 
@@ -9,7 +10,10 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: hxpro.selinux }
+          - { role: hxpro.selinux }
+      tasks:
+          - include: my_selinux_tasks.yml
+            when: selinux
 
 License
 -------
@@ -19,4 +23,4 @@ License
 Author Information
 ------------------
 
-Ansible novice
+Matěj Koudelka <matej@hxpro.cz>
