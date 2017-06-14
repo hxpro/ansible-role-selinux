@@ -1,6 +1,6 @@
 ---
 - set_fact:
-    selinux: "{{ ansible_selinux is defined and ansible_selinux.status == 'enabled' }}"
+    selinux: "{{ ansible_selinux is defined and ansible_selinux!=false and ansible_selinux.status == 'enabled' }}"
 
 - name: Install selinux packages
   package: name={{ selinux_pkg }} state=present
