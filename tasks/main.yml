@@ -1,6 +1,11 @@
 ---
+- name: getenforce
+  shell: "[ -x /usr/sbin/getenforce ] && /usr/sbin/getenforce"
+  failed_when: false
+  register: getenforce
+
 - set_fact:
-    selinux: "{{ ansible_selinux is defined and ansible_selinux!=false and ansible_selinux.status == 'enabled' }}"
+    selinux: "{{ getenforce.stdout == 'Enforcing' }}"
 
 - name: Install selinux packages
   package: name={{ selinux_pkg }} state=present
