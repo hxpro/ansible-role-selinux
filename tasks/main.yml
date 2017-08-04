@@ -4,6 +4,7 @@
   failed_when: false
   register: getenforce
   check_mode: no
+  changed_when: False
 
 - set_fact:
     selinux: "{{ getenforce.stdout == 'Enforcing' }}"
