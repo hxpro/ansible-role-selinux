@@ -12,3 +12,10 @@
 - name: Install selinux packages
   package: name={{ selinux_pkg }} state=present
   when: selinux and ansible_os_family == 'RedHat'
+
+- name: Set sebooleans
+  seboolean:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    persistent: "{{ item.persistent }}"
+  with_items: "{{ selinux_booleans }}"

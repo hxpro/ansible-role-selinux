@@ -10,7 +10,14 @@ Example Playbook
 
     - hosts: servers
       roles:
-          - { role: hxpro.selinux }
+          - role: hxpro.selinux
+            selinux_booleans:
+              - name: httpd_can_network_connect
+                persistent: yes
+                state: yes
+              - name: httpd_can_network_connect_db
+                persistent: yes
+                state: yes
       tasks:
           - include: my_selinux_tasks.yml
             when: selinux
