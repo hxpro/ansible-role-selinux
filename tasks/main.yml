@@ -19,3 +19,4 @@
     state: "{{ item.state }}"
     persistent: "{{ item.persistent }}"
   with_items: "{{ selinux_booleans }}"
+  when: selinux
