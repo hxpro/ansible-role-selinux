@@ -5,13 +5,21 @@
   register: getenforce
   check_mode: no
   changed_when: False
+  tags:
+    - setup
+    - config
 
 - set_fact:
     selinux: "{{ getenforce.stdout == 'Enforcing' }}"
+  tags:
+    - setup
+    - config
 
 - name: Install selinux packages
   package: name={{ selinux_pkg }} state=present
   when: selinux and ansible_os_family == 'RedHat'
+  tags:
+    - setup
 
 - name: Set sebooleans
   seboolean:
@@ -20,3 +28,5 @@
     persistent: "{{ item.persistent }}"
   with_items: "{{ selinux_booleans }}"
   when: selinux
+  tags:
+    - config
