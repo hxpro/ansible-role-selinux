@@ -20,7 +20,7 @@ Example Playbook
                 state: yes
       tasks:
           - include: my_selinux_tasks.yml
-            when: selinux
+            when: selinux|bool
 
 License
 -------
