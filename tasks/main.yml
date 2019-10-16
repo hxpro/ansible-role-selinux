@@ -9,7 +9,8 @@
     - setup
     - config
 
-- set_fact:
+- name: Set selinux fact
+  set_fact:
     selinux: "{{ getenforce.stdout == 'Enforcing' }}"
   tags:
     - setup
