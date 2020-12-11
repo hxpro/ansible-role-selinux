@@ -7,7 +7,7 @@
         - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
         - "main.yml"
       paths:
-        - "vars"  
+        - "vars"
 
 - name: getenforce
   shell: "[ -x /usr/sbin/getenforce ] && /usr/sbin/getenforce"
