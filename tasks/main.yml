@@ -8,6 +8,8 @@
         - "main.yml"
       paths:
         - "vars"
+  tags:
+    - setup
 
 - name: getenforce
   shell: "[ -x /usr/sbin/getenforce ] && /usr/sbin/getenforce"
