@@ -1,0 +1,5 @@
+---
+selinux_pkg:
+  - python3-libsemanage
+  - python3-libselinux
+  - python3-policycoreutils
